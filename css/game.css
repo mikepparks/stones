@@ -8,8 +8,8 @@ body {
 }
 
 #gameField {
-	width: 800px;
-	height: 800px;
+	width: 900px;
+	height: 900px;
 	margin: auto;
 	border: 1px solid #000;
 	overflow: hidden;
@@ -18,24 +18,156 @@ body {
 #gameField > .stoneSlot {
 	width: 260px;
 	height: 260px;
-	margin: 2px;
+	margin: 16px;
 	float: left;
+	line-height: 260px;
+	font-size: 72px;
 }
 
 #stoneHand {
 	position: absolute;
-	width: 170px;
+	width: 160px;
 	height: 775px;
 	border: 1px solid black;
 	right: 0px;
 }
 
 #stoneHand > .stoneSlot {
-	margin: 2px auto;
-	width: 150px;
-	height: 150px;
+	width: 120px;
+	height: 120px;
+	line-height: 120px;
+	font-size: 72px;
+	float: left;
+	margin: 16px;
+}
+
+.stoneSlot {
+	border: 1px solid transparent;
+	text-align: center;
+	vertical-align: middle;
 }
 
 .stoneSlot:hover {
 	border: 1px solid #000;
+}
+
+.stoneSlot[data-selected="true"],.stoneSlot[data-selected="true"]:hover {
+	border: 1px solid #F00;
+}
+
+#stoneHand > .stoneSlot:empty {
+	display: none;
+}
+
+#stoneHand .stone {
+	width: 120px;
+	height: 120px;
+}
+
+#gameField .stone {
+	width: 260px;
+	height: 260px;
+}
+
+.stone {
+	position: absolute;
+	border: 1px solid #000;
+	border-radius: 20px;
+	box-shadow: 2px 2px 2px #000;
+}
+
+.stone[data-owner="0"] {
+	border-color: #0F0;
+}
+
+.stone[data-owner="1"] {
+	border-color: #F00;
+}
+
+.stone > .side {
+	position: absolute;
+}
+
+.stone > .side > .point {
+	background-image: url('img/arrows.png');
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+	float: left;
+}
+
+/* Stone N */
+.side.N > .point {
+	background-position: 0 0;
+}
+
+#stoneHand .stone > .side.N {
+	top: -17px;
+	left: 17px;
+	height: 16px;
+	width: 96px;
+}
+
+#gameField .stone > .side.N {
+	top: -17px;
+	left: 17px;
+	height: 16px;
+	width: 226px;
+}
+
+/* Stone E */
+.side.E > .point {
+	background-position: 0 -17px;
+}
+
+#stoneHand .stone > .side.E {
+	top: 17px;
+	left: 121px;
+	height: 96px;
+	width: 16px;
+}
+
+#gameField .stone > .side.E {
+	top: 17px;
+	left: 261px;
+	height: 226px;
+	width: 16px;
+}
+
+/* Stone S */
+.side.S > .point {
+	background-position: 0 -33px;
+}
+
+#stoneHand .stone > .side.S {
+	top: 121px;
+	left: 17px;
+	height: 16px;
+	width: 116px;
+}
+
+#gameField .stone > .side.S {
+	top: 261px;
+	left: 17px;
+	height: 16px;
+	width: 226px;
+}
+
+/* Stone W */
+.side.W > .point {
+	background-position: 0 -48px;
+}
+
+#stoneHand .stone > .side.W {
+	top: 17px;
+	left: -17px;
+	height: 116px;
+	width: 16px;
+}
+
+#gameField .stone > .side.W {
+	top: 17px;
+	left: -17px;
+	height: 226px;
+	width: 16px;
 }

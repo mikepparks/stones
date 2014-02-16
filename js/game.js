@@ -1,5 +1,6 @@
 (function(gameEngine) {
-	gameEngine.container = {};
+	gameEngine.field = {};
+	gameEngine.playerSlots = {};
 
 	gameEngine.score = 0;
 	gameEngine.timer = 0;
@@ -23,17 +24,18 @@
 	};
 
 	gameEngine.gameInit = function() {
-		gameEngine.ui.init();
 		gameEngine.logic.init();
+		gameEngine.ui.init();
 
 		timerHandle = setInterval(gameEngine.updateTime,1000);
 		gameEngine.ui.updateTime();
 	};
 
-	gameEngine.init = function(container) {
+	gameEngine.init = function(field,playerSlots) {
 		console.log('Game Engine Initializing...');
 
-		gameEngine.container = container;
+		gameEngine.field = field;
+		gameEngine.playerSlots = playerSlots;
 		
 		gameEngine.gameInit();
 

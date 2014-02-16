@@ -1,14 +1,41 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+#scoreDisplay,#timeDisplay {
+	position: absolute;
+}
+
 #gameField {
 	width: 800px;
 	height: 800px;
 	margin: auto;
-	border: 1px solid black;
+	border: 1px solid #000;
+	overflow: hidden;
 }
 
 #gameField > .stoneSlot {
 	width: 260px;
 	height: 260px;
 	margin: 2px;
-	border: 1px solid black;
 	float: left;
+}
+
+#stoneHand {
+	position: absolute;
+	width: 170px;
+	height: 775px;
+	border: 1px solid black;
+	right: 0px;
+}
+
+#stoneHand > .stoneSlot {
+	margin: 2px auto;
+	width: 150px;
+	height: 150px;
+}
+
+.stoneSlot:hover {
+	border: 1px solid #000;
 }

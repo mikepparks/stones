@@ -23,9 +23,10 @@
 		currStone.attr('data-owner', gameEngine.ui.SLOT_OWNER.CPU);
 		currStone.attr('data-type', gameEngine.ui.SLOT_TYPE.STONE);
 		currSlot.attr('data-type', gameEngine.ui.SLOT_TYPE.STONE);
+		currStone.attr('data-icon',currStoneData.type);
 		currStone.attr('data-selected',false);
 		
-		currStone.text(currStoneData.type);
+		//currStone.text(currStoneData.type);
 		
 		gameEngine.ui.buildStone(currStone);
 		

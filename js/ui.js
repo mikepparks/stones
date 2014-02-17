@@ -19,12 +19,6 @@
 		scoreDisplay.append('<div>CPU: '+cpuScore+'</div>');
 	};
 	
-	ui.updateTime = function() {
-		var seconds = 0;
-		var minutes = 0;
-		$('#timeDisplay').text(minutes + ':' + seconds);
-	};
-	
 	ui.buildStone = function(stoneObject) {
 		var stoneSides = ['N','E','S','W'];
 		var sidePoints = stoneObject.data('stone').side;
@@ -88,8 +82,9 @@
 						currStone.data('stone',playerStone.data('stone'));
 						currStone.attr('data-owner',playerStone.data('owner'));
 						currStone.attr('data-type',playerStone.attr('data-type'));
+						currStone.attr('data-icon',playerStone.data('stone').type);
 						selectedSlot.attr('data-type',playerStone.attr('data-type'));
-						currStone.text(playerStone.data('stone').type);
+						//currStone.text(playerStone.data('stone').type);
 						
 						ui.buildStone(currStone);
 					
@@ -118,9 +113,10 @@
 			currStone.data('stone', gameEngine.logic.playerStones[i]);
 			currStone.attr('data-owner', ui.SLOT_OWNER.PLAYER);
 			currStone.attr('data-type', ui.SLOT_TYPE.STONE);
+			currStone.attr('data-icon',gameEngine.logic.playerStones[i].type);
 			currStone.attr('data-selected',false);
 			
-			currStone.text(gameEngine.logic.playerStones[i].type);
+			//currStone.text(gameEngine.logic.playerStones[i].type);
 			
 			ui.buildStone(currStone);
 			

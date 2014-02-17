@@ -58,6 +58,8 @@
 	ui.init = function() {
 		console.log('Game UI Initializing...');
 		
+		$(document).find('.stone').remove();
+
 		ui.updateScore();
 		
 		var x=0,y=0;

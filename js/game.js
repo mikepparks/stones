@@ -38,7 +38,11 @@
 		gameEngine.field = field;
 		gameEngine.playerSlots = playerSlots;
 		
-		gameEngine.gameInit();
+		$('#startGame').click(function() {
+			$(this).hide();
+			gameEngine.gameInit();
+			gameEngine.ui.updateScore();
+		});
 
 		console.log('Game Engine Initialized.');
 	};

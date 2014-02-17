@@ -1,7 +1,9 @@
 (function(gameEngine,logic) {
 	logic.MAX_STONES = 5;
 	logic.STONE_SIDE = 4;
+	logic.MAX_POINTS = 4;
 	logic.MAX_SIDE = 3;
+	logic.MAX_TYPES = 20;
 
 	logic.playerStones = [];
 	logic.cpuStones = [];
@@ -24,10 +26,10 @@
 		var stoneData = {};
 		stoneData.side = [];
 		
-		stoneData.type = gameEngine.utils.randRange(1,20);
+		stoneData.type = gameEngine.utils.randRange(1,logic.MAX_TYPES);
 
 		for (var i = 0; i < logic.STONE_SIDE; ++i) {
-			stoneData.side[i] = gameEngine.utils.randRange(0,4);
+			stoneData.side[i] = gameEngine.utils.randRange(0,logic.MAX_POINTS);
 		}
 		
 		return stoneData;
@@ -35,6 +37,14 @@
 	
 	logic.init = function() {
 		console.log('Game Logic Initializing...');
+		
+		logic.playerStones = [];
+		logic.cpuStones = [];
+		usedPlayerStones = [];
+		usedCPUStones = [];
+		logic.turn = -1;
+		logic.playerUsedSlot = null;
+		logic.cpuUsedSlot = null;
 		
 		for (var i = 0; i < logic.MAX_STONES; ++i) {
 			logic.playerStones[i] = logic.generateStone();
@@ -52,7 +62,7 @@
 		
 		gameEngine.logic.turn = gameEngine.utils.randRange(0,1);
 		
-		timerHandle = setInterval(logic.updateTurn,1000);
+		timerHandle = setInterval(logic.updateTurn,500);
 		
 		console.log('Game Logic Initialized.');
 	};
@@ -96,6 +106,7 @@
 		if (gameEngine.field.find('.stoneSlot:empty').length == 0) {
 			clearInterval(timerHandle);
 			console.log('Game Over');
+			$('#startGame').show().text('Restart');
 		}
 
 		// process previous turn

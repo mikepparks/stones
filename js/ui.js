@@ -10,7 +10,13 @@
 	};
 
 	ui.updateScore = function() {
-		$('#scoreDisplay').text(gameEngine.score);
+		var playerScore = gameEngine.field.find('.stone[data-owner="'+(ui.SLOT_OWNER.PLAYER)+'"]').length;
+		var cpuScore = gameEngine.field.find('.stone[data-owner="'+(ui.SLOT_OWNER.CPU)+'"]').length;
+		
+		var scoreDisplay = $('#scoreDisplay');
+		scoreDisplay.empty();
+		scoreDisplay.append('<div>Player: '+playerScore+'</div>');
+		scoreDisplay.append('<div>CPU: '+cpuScore+'</div>');
 	};
 	
 	ui.updateTime = function() {
@@ -54,36 +60,50 @@
 		
 		ui.updateScore();
 		
+		var x=0,y=0;
 		gameEngine.field.find('.stoneSlot').each(function(i,o) {
 			var currSlot = $(o);
 			
 			currSlot.attr('data-type', ui.SLOT_TYPE.EMPTY);
 			currSlot.attr('data-selected',false);
+			currSlot.attr('data-x', x);
+			currSlot.attr('data-y', y);
 			
-			currSlot.click(function() {
-				if (currSlot.attr('data-type') == ui.SLOT_TYPE.EMPTY) {
+			currSlot.click(function(e) {
+				var selectedSlot = $(e.currentTarget);
+				
+				if (selectedSlot.attr('data-type') != ui.SLOT_TYPE.EMPTY) return;
+				
+				if (selectedSlot.attr('data-type') == ui.SLOT_TYPE.EMPTY) {
 					// find the currently selected player slot
 					var playerStone = gameEngine.playerSlots.find('.stoneSlot > .stone[data-selected="true"]');
 					
 					if (playerStone.length > 0) {
 						var currStone = $('<div>');
 						currStone.addClass('stone');
-						currSlot.append(currStone);
+						selectedSlot.append(currStone);
 						
 						currStone.data('stone',playerStone.data('stone'));
 						currStone.attr('data-owner',playerStone.data('owner'));
 						currStone.attr('data-type',playerStone.attr('data-type'));
+						selectedSlot.attr('data-type',playerStone.attr('data-type'));
 						currStone.text(playerStone.data('stone').type);
 						
 						ui.buildStone(currStone);
 					
 						playerStone.remove();
 						
-						console.dir(currStone.data());
+						gameEngine.logic.endTurn((selectedSlot.length > 0 ? selectedSlot : null));
 					}
-				} else {
 				}
 			});
+			
+			if ((x+1) < gameEngine.logic.MAX_SIDE) {
+				++x;
+			} else {
+				x = 0;
+				++y;
+			}
 		});
 		
 		//logic.playerStones

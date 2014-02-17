@@ -1,7 +1,7 @@
 (function(gameEngine) {
 	gameEngine.field = {};
 	gameEngine.playerSlots = {};
-
+	
 	gameEngine.score = 0;
 	gameEngine.timer = 0;
 	gameEngine.pause = false;
@@ -26,6 +26,7 @@
 	gameEngine.gameInit = function() {
 		gameEngine.logic.init();
 		gameEngine.ui.init();
+		gameEngine.ai.init();
 
 		timerHandle = setInterval(gameEngine.updateTime,1000);
 		gameEngine.ui.updateTime();

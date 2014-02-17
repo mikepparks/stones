@@ -77,11 +77,13 @@ body {
 }
 
 .stone[data-owner="0"] {
-	border-color: #0F0;
+	border-color: #070;
+	background-color: #070;
 }
 
 .stone[data-owner="1"] {
-	border-color: #F00;
+	border-color: #700;
+	background-color: #700;
 }
 
 .stone > .side {
@@ -170,4 +172,9 @@ body {
 	left: -17px;
 	height: 226px;
 	width: 16px;
+}
+
+#scoreDisplay {
+	top: 20px;
+	font-size: 72px;
 }

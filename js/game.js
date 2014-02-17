@@ -17,19 +17,12 @@
 
 	gameEngine.updateTime = function() {
 		gameEngine.logic.update();
-		if (!gameEngine.pause) {
-			++gameEngine.timer;
-			gameEngine.ui.updateTime();
-		}
 	};
 
 	gameEngine.gameInit = function() {
 		gameEngine.logic.init();
 		gameEngine.ui.init();
 		gameEngine.ai.init();
-
-		timerHandle = setInterval(gameEngine.updateTime,1000);
-		gameEngine.ui.updateTime();
 	};
 
 	gameEngine.init = function(field,playerSlots) {

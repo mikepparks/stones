@@ -8,37 +8,37 @@ body {
 }
 
 #gameField {
-	width: 900px;
-	height: 900px;
+	width: 675px;
+	height: 675px;
 	margin: auto;
 	border: 1px solid #000;
 	overflow: hidden;
 }
 
 #gameField > .stoneSlot {
-	width: 260px;
-	height: 260px;
-	margin: 16px;
+	width: 195px;
+	height: 195px;
+	margin: 12px;
 	float: left;
-	line-height: 260px;
-	font-size: 72px;
+	line-height: 195px;
+	font-size: 54px;
 }
 
 #stoneHand {
 	position: absolute;
-	width: 160px;
-	height: 775px;
+	width: 120px;
+	height: 580px;
 	border: 1px solid black;
 	right: 0px;
 }
 
 #stoneHand > .stoneSlot {
-	width: 120px;
-	height: 120px;
-	line-height: 120px;
-	font-size: 72px;
+	width: 90px;
+	height: 90px;
+	line-height: 90px;
+	font-size: 54px;
 	float: left;
-	margin: 16px;
+	margin: 12px;
 }
 
 .stoneSlot {
@@ -60,19 +60,19 @@ body {
 }
 
 #stoneHand .stone {
-	width: 120px;
-	height: 120px;
+	width: 90px;
+	height: 90px;
 }
 
 #gameField .stone {
-	width: 260px;
-	height: 260px;
+	width: 195px;
+	height: 195px;
 }
 
 .stone {
 	position: absolute;
 	border: 1px solid #000;
-	border-radius: 20px;
+	border-radius: 15px;
 	box-shadow: 2px 2px 2px #000;
 	background-repeat: no-repeat;
 	background-size: 75%;
@@ -95,8 +95,8 @@ body {
 
 .stone > .side > .point {
 	background-image: url('img/arrows.png');
-	width: 16px;
-	height: 16px;
+	width: 12px;
+	height: 12px;
 	overflow: hidden;
 	float: left;
 }
@@ -107,17 +107,17 @@ body {
 }
 
 #stoneHand .stone > .side.N {
-	top: -17px;
-	left: 17px;
-	height: 16px;
-	width: 96px;
+	top: -13px;
+	left: 13px;
+	height: 12px;
+	width: 72px;
 }
 
 #gameField .stone > .side.N {
-	top: -17px;
-	left: 17px;
-	height: 16px;
-	width: 226px;
+	top: -13px;
+	left: 13px;
+	height: 12px;
+	width: 170px;
 }
 
 /* Stone E */
@@ -126,17 +126,17 @@ body {
 }
 
 #stoneHand .stone > .side.E {
-	top: 17px;
-	left: 121px;
-	height: 96px;
-	width: 16px;
+	top: 13px;
+	left: 91px;
+	height: 72px;
+	width: 13px;
 }
 
 #gameField .stone > .side.E {
-	top: 17px;
-	left: 261px;
-	height: 226px;
-	width: 16px;
+	top: 13px;
+	left: 196px;
+	height: 170px;
+	width: 13px;
 }
 
 /* Stone S */
@@ -145,17 +145,17 @@ body {
 }
 
 #stoneHand .stone > .side.S {
-	top: 121px;
-	left: 17px;
-	height: 16px;
-	width: 116px;
+	top: 91px;
+	left: 13px;
+	height: 13px;
+	width: 87px;
 }
 
 #gameField .stone > .side.S {
-	top: 261px;
-	left: 17px;
-	height: 16px;
-	width: 226px;
+	top: 196px;
+	left: 13px;
+	height: 13px;
+	width: 170px;
 }
 
 /* Stone W */
@@ -164,36 +164,36 @@ body {
 }
 
 #stoneHand .stone > .side.W {
-	top: 17px;
-	left: -17px;
-	height: 116px;
-	width: 16px;
+	top: 13px;
+	left: -13px;
+	height: 87px;
+	width: 13px;
 }
 
 #gameField .stone > .side.W {
-	top: 17px;
-	left: -17px;
-	height: 226px;
-	width: 16px;
+	top: 13px;
+	left: -13px;
+	height: 170px;
+	width: 13px;
 }
 
 #scoreDisplay {
-	top: 20px;
-	font-size: 72px;
+	top: 15px;
+	font-size: 54px;
 }
 
 #startGame {
 	position: absolute;
-	top: 225px;
-	left: 30px;
-	width: 300px;
-	height: 75px;
-	border: 5px solid #000;
-	border-radius: 20px;
+	top: 196px;
+	left: 23px;
+	width: 225px;
+	height: 56px;
+	border: 4px solid #000;
+	border-radius: 15px;
 	background-color: #070;
 	color: #FFF;
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 15px;
 	outline: none;
 }
 
